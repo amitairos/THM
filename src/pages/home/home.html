@@ -1,0 +1,80 @@
+<ion-header>
+
+  <expandable-header [scrollArea]="mycontent" headerHeight="200">
+    <ion-footer no-lines no-border no-shadow>
+      <ion-item no-lines no-shadow no-border class="title" position="bottom">
+        <div>תורת המחנה</div>
+      </ion-item>
+    </ion-footer>
+  </expandable-header>
+  <!-- <ion-navbar color="primary">
+    <ion-title>תורת המחנה</ion-title>
+
+  </ion-navbar> -->
+</ion-header>
+
+<ion-content fullscreen #mycontent>
+
+  <ion-card class="headerCard" center>
+
+    <h2>
+      <b>{{day}}</b>
+    </h2>
+    <p>שבוע פרשת {{parsha}}</p>
+    <button ion-button icon-left clear small>
+      <div>לוח דינים ומנהגים</div>
+    </button>
+
+  </ion-card>
+
+
+  <ion-card>
+    <ion-row>
+      <ion-col>
+        <div class="iconButton ripple">
+          <img class="toolImage" src="assets/imgs/icons/ic_siddur_green.png" alt="תפילות לחייל" />
+          <label>תפילות לחייל</label>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="iconButton ripple">
+          <img class="toolImage" src="assets/imgs/icons/ic_compass-outline.png" alt="מצפן תפילה" />
+          <label>מצפן תפילה</label>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="iconButton ripple" (click)="openKitzurHT()">
+          <img class="toolImage" src="assets/imgs/icons/ic_kitzur_green_bold_36dp.png" alt="קיצור הלכות" />
+          <label>קיצור הלכות</label>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="iconButton ripple">
+          <img class="toolImage" src="assets/imgs/icons/ic_matzah_green.png" alt="פסח" />
+          <label>פסח וימי ספירת העומר</label>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="iconButton ripple">
+          <img class="toolImage" src="assets/imgs/icons/ic_torah_green.png" alt="פרשת השבוע" />
+          <label>פרשת השבוע</label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-row class="row">
+    <ion-col col-3 *ngFor="let time of Times">
+      <ion-card class="time">
+        <div class="timeType">{{time.Type}}</div>
+        <div style="padding: 5px;">
+          <div class="timeTime">{{time.Time | date:'H:mm'}}</div>
+          <img class="timeIcon" src="{{time.Icon}}" alt="" />
+        </div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <div class="blank"></div>
+
+</ion-content>
